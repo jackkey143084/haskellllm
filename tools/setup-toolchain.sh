@@ -7,7 +7,7 @@ set -e
 S=/tmp/sysroot2
 mkdir -p "$S"
 cd "$S"
-for d in /workspace/*.deb; do dpkg-deb --fsys-tarfile "$d" | tar -x -C .; done
+for d in /workspace/debs/*.deb; do dpkg-deb --fsys-tarfile "$d" | tar -x -C .; done
 # GHC's Debian layout: real package db + settings live in /var/lib/ghc,
 # and /usr/lib/ghc/lib/package.conf.d is a symlink to it.
 ln -sfn "$S/var/lib/ghc" /var/lib/ghc
